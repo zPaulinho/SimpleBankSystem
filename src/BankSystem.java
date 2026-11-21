@@ -12,8 +12,9 @@ public class BankSystem {
         System.out.println("Que quieres hacer:");
         System.out.println("1: Ver tu saldo en el banco");
         System.out.println("2: Añadir dinero a tu cuenta bancaría");
-        System.out.println("3: Retirar dinero de tu cuenta bancaría");
-        System.out.println("4: Salir");
+        System.out.println("3: Entrar a un trabajo");
+        System.out.println("4: Retirar dinero de tu cuenta bancaría");
+        System.out.println("5: Salir");
         System.out.print("Introduce el numero de lo que quieres hacer: ");
 
         int option = scanner.nextInt();
@@ -41,6 +42,26 @@ public class BankSystem {
                 break;
 
             case 3:
+                System.out.println("Estos son los trabajos disponibles: ");
+                System.out.println("1: Panadero, 1350 al mes, 8h  ");
+                System.out.println("2: Repartidor de globo: 1000€ al mes y media jornada 12h ");
+                System.out.println("Elije el trabajo que mas te guste: ");
+                int job = scanner.nextInt();
+
+                if (job == 1) {
+                    account.addMoney(1300);
+                    System.out.println("Tu trabajo ahora es Panadero ahora cobraras 1300€ al mes");
+                    System.out.println("Se te ha dado un adelanto de tu primer mes");
+                    System.out.println(account.getAccount());
+                } else {
+                    account.addMoney(1000);
+                    System.out.println("Tu trabajo ahora es Repartidor de glob ahora cobraras 1000€ al mes");
+                    System.out.println("Se te ha dado un adelanto de tu primer mes");
+                    System.out.println(account.getAccount());
+                }
+
+
+            case 4:
                 System.out.print("Cuanto dinero quieres retirar: ");
                 double withdraw = scanner.nextDouble();
 
@@ -55,13 +76,15 @@ public class BankSystem {
                 System.out.flush();
                 break;
 
-            case 4:
+            case 5:
                 System.out.println("Saliendo...");
                 System.out.print("\033[H\033[2J");
                 System.out.flush();
                 break;
+
+            default:
+                System.out.println("Opción no válida");
+                break;
         }
-
-
     }
 }

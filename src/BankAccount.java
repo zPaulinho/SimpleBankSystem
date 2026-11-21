@@ -1,6 +1,8 @@
 public class BankAccount {
 
     private double money;
+    private String Panadero;
+    private String Repartidor;
 
     // Setter para añadirte dinero
     public void setMoney(double money){
@@ -23,4 +25,5 @@ public class BankAccount {
     public void withdrawMoney(double cantidad){
         this.money = money - cantidad;
     }
+
 }
