@@ -6,9 +6,9 @@ public class BankSystem {
 
         boolean trabajando = false;
         String trabajo;
-        boolean loan1;
-        boolean loan2;
-        boolean loan3;
+        boolean deuda1 = false;
+        boolean deuda2 = false;
+        boolean deuda3 = false;
 
         var account = new BankAccount();
         account.setMoney(100);
@@ -21,8 +21,9 @@ public class BankSystem {
             System.out.println("2: Añadir dinero a tu cuenta bancaría");
             System.out.println("3: Entrar a un trabajo");
             System.out.println("4: Retirar dinero de tu cuenta bancaría");
-            System.out.println("5: Retirar dinero de tu cuenta bancaría");
-            System.out.println("6: Salir");
+            System.out.println("5: Pedir un préstamo");
+            System.out.println("6: Pagar un préstamo");
+            System.out.println("7: Salir");
             System.out.print("Introduce el numero de lo que quieres hacer: ");
 
             int option = scanner.nextInt();
@@ -104,10 +105,45 @@ public class BankSystem {
                     break;
 
                 case 5:
-                    System.out.println("Tienes 3 prestamos,");
+                    System.out.println("Tienes 3 prestamos para escoger:");
+                    System.out.println("Prestamo 1: 4500€, a pagar en 8 semanas + 3% de interés");
+                    System.out.println("Prestamo 2: 10000€, a pagar en 15 semanas + 5% de interés");
+                    System.out.println("Prestamo 3: 25000€, a pagar en 24 semanas + 8% de interés");
+                    int loannumber = scanner.nextInt();
+                    scanner.nextLine();
 
+                    if (loannumber == 1) {
+                        account.loan1();
+                    } else if (loannumber == 2) {
+                        account.loan2();
+                    } else if (loannumber == 3) {
+                        account.loan3();
+                    } else {
+                        System.out.println("Opción no valida");
+                        break;
+                    }
                     break;
+
                 case 6:
+                    System.out.println("Tienes 3 prestamos para escoger:");
+                    System.out.println("Prestamo 1: Debes pagar 4500€");
+                    System.out.println("Prestamo 2: Debes pagar 10000€");
+                    System.out.println("Prestamo 3: Debes pagar 25000€");
+                    int payloan = scanner.nextInt();
+                    scanner.nextLine();
+
+                    if (payloan == 1 && deuda1) {
+                        account.payloan1();
+                    } else if (payloan == 2 && deuda2) {
+                        account.payloan2();
+                    } else if (payloan == 3 && deuda3) {
+                        account.payloan3();
+                    } else {
+                        System.out.println("No tienes ese préstamo o la opción no es válida");
+                        break;
+                    }
+                    break;
+                case 7:
                     System.out.println("Saliendo...");
                     System.out.print("\033[H\033[2J");
                     System.out.flush();
