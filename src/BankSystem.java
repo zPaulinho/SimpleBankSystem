@@ -33,7 +33,7 @@ public class BankSystem {
                     double add = scanner.nextDouble();
                     scanner.nextLine();
 
-                    if (add < 0) {
+                    if (add <= 0) {
                         System.out.println("No puedes añadir esa cantidad");
                     } else {
                         account.addMoney(add);
