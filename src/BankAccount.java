@@ -26,4 +26,16 @@ public class BankAccount {
         this.money = money - cantidad;
     }
 
+    public void loan1(){
+        addMoney(4500);
+    }
+
+    public void loan2(){
+        addMoney(10000);
+    }
+
+    public void loan3(){
+        addMoney(25000);
+    }
+
 }
