@@ -6,6 +6,9 @@ public class BankSystem {
 
         boolean trabajando = false;
         String trabajo;
+        boolean loan1;
+        boolean loan2;
+        boolean loan3;
 
         var account = new BankAccount();
         account.setMoney(100);
@@ -18,7 +21,8 @@ public class BankSystem {
             System.out.println("2: Añadir dinero a tu cuenta bancaría");
             System.out.println("3: Entrar a un trabajo");
             System.out.println("4: Retirar dinero de tu cuenta bancaría");
-            System.out.println("5: Salir");
+            System.out.println("5: Retirar dinero de tu cuenta bancaría");
+            System.out.println("6: Salir");
             System.out.print("Introduce el numero de lo que quieres hacer: ");
 
             int option = scanner.nextInt();
@@ -100,6 +104,10 @@ public class BankSystem {
                     break;
 
                 case 5:
+                    System.out.println("Tienes 3 prestamos,");
+
+                    break;
+                case 6:
                     System.out.println("Saliendo...");
                     System.out.print("\033[H\033[2J");
                     System.out.flush();
