@@ -4,6 +4,9 @@ public class BankSystem {
 
     public static void main(String[] args) throws Exception {
 
+        boolean trabajando = false;
+        String trabajo;
+
         var account = new BankAccount();
         account.setMoney(100);
 
@@ -49,20 +52,33 @@ public class BankSystem {
                     System.out.println("1: Panadero, 1350 al mes, 8h  ");
                     System.out.println("2: Repartidor de globo: 1000€ al mes y media jornada 12h ");
                     System.out.println("Elije el trabajo que mas te guste: ");
+
                     int job = scanner.nextInt();
                     scanner.nextLine();
+
+                    if (trabajando) {
+                        System.out.println("Ya tienes un trabajo");
+                        break;
+                    }
 
                     if (job == 1) {
                         account.addMoney(1300);
                         System.out.println("Tu trabajo ahora es Panadero ahora cobraras 1300€ al mes");
                         System.out.println("Se te ha dado un adelanto de tu primer mes");
                         System.out.println(account.getAccount());
+                        trabajando = true;
+                        trabajo = "panadero";
                         break;
-                    } else {
+                    } if (job == 2) {
                         account.addMoney(1000);
                         System.out.println("Tu trabajo ahora es Repartidor de glob ahora cobraras 1000€ al mes");
                         System.out.println("Se te ha dado un adelanto de tu primer mes");
                         System.out.println(account.getAccount());
+                        trabajando = true;
+                        trabajo = "repartidor";
+                        break;
+                    } else {
+                        System.out.println("Trabajo no válido");
                         break;
                     }
 
